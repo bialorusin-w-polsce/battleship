@@ -31,7 +31,7 @@ namespace Battleship.ConsoleUI
                 for (int j = 0; j < _gameService.Size; ++j)
                 {
                     var coordinate = new Coordinate() { Row = i, Column = j };
-                    Console.SetCursorPosition(_start.Column + coordinate.Column + 2, _start.Row + coordinate.Row + 1);
+                    Console.SetCursorPosition(_start.Column + coordinate.Column, _start.Row + coordinate.Row);
                     if (_gameService.IsShip(coordinate) && _gameService.IsShot(coordinate))
                     {
                         Console.Write(hit);
@@ -56,13 +56,13 @@ namespace Battleship.ConsoleUI
         {
             for (int i = 0; i < _gameService.Size; ++i)
             {
-                Console.SetCursorPosition(_start.Column + i + 2, _start.Row);
+                Console.SetCursorPosition(_start.Column + i, _start.Row - 1);
                 Console.Write((char)('a' + i));
-                Console.SetCursorPosition(_start.Column, _start.Row + i + 1);
+                Console.SetCursorPosition(_start.Column - 2, _start.Row + i);
                 Console.Write(i + 1);
-                Console.SetCursorPosition(_start.Column + i + 1, _start.Row + _gameService.Size + 1);
+                Console.SetCursorPosition(_start.Column + i, _start.Row + _gameService.Size);
                 Console.Write((char)('a' + i));
-                Console.SetCursorPosition(_start.Column + _gameService.Size + 2, _start.Row + i + 1);
+                Console.SetCursorPosition(_start.Column + _gameService.Size, _start.Row + i);
                 Console.Write(i + 1);
             }
         }
